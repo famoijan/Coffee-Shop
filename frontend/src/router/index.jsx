@@ -4,25 +4,32 @@ import AddCoffee from "../pages/AddCoffee";
 import SingleCoffee from "../pages/SingleCoffee";
 import EditCoffee from "../pages/EditCoffee";
 import NotFoundPage from "../pages/NotFoundPage";
+import MainLayout from "../layout/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    errorElement: <NotFoundPage />,
-  },
+    element: <MainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        errorElement: <NotFoundPage />,
+      },
 
-  {
-    path: "/add-coffee",
-    element: <AddCoffee />,
-  },
-  {
-    path: "/single-coffee",
-    element: <SingleCoffee />,
-  },
-  {
-    path: "/edit-coffee",
-    element: <EditCoffee />,
+      {
+        path: "add-coffee",
+        element: <AddCoffee />,
+      },
+      {
+        path: "single-coffee",
+        element: <SingleCoffee />,
+      },
+      {
+        path: "edit-coffee",
+        element: <EditCoffee />,
+      },
+    ],
   },
 ]);
 
